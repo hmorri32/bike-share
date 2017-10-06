@@ -1,6 +1,7 @@
 RSpec.describe 'City' do
   context 'validates' do
     it 'existence of name' do
+
       city = City.create
 
       expect(city).to be_invalid
