@@ -13,11 +13,11 @@ class Condition < ActiveRecord::Base
 
   has_many :trips, :foreign_key => :start_date
 
-  def self.days_with_high_temperature(range)
+  def self.days_within_high_temperature(range)
     where(max_temperature: [range..range + 9])
   end
 
-  def self.days_with_precipitation(range)
+  def self.days_within_precipitation(range)
     where(precipitation: [range..range + 0.49])
   end
 
@@ -25,48 +25,76 @@ class Condition < ActiveRecord::Base
     where(mean_wind_speed: [range..range + 3])
   end
 
+  def self.days_within_visibility(range)
+    where(mean_visibility: [range..range + 3])
+  end
+
   def self.rides_by_day(range)
     range.joins(:trips).group(:date).count
   end
 
   def self.lowest_number_of_rides_by_temp(range)
-    all_rides_by_temp(range).values.min
+    all_rides_within_temp(range).values.min
   end
 
   def self.average_number_of_rides_by_temp(range)
-    average(all_rides_by_temp(range).values)
+    average(all_rides_within_temp(range).values)
   end
 
   def self.highest_number_of_rides_by_temp(range)
-    all_rides_by_temp(range).values.max
+    all_rides_within_temp(range).values.max
   end
 
   def self.lowest_number_of_rides_by_precipitation(range)
-    all_rides_by_precipitation(range).values.min
+    all_rides_within_precipitation(range).values.min
   end
 
   def self.average_number_of_rides_by_precipitation(range)
-    average(all_rides_by_precipitation(range).values)
+    average(all_rides_within_precipitation(range).values)
   end
 
   def self.highest_number_of_rides_by_precipitation(range)
-    all_rides_by_precipitation(range).values.max
+    all_rides_within_precipitation(range).values.max
   end
 
   def self.lowest_number_of_rides_by_wind(range)
-    
+    all_rides_within_wind_speed(range).values.min
   end
 
-  def self.all_rides_by_precipitation(range)
-    rides_by_day(days_with_precipitation(range))
+  def self.average_number_of_rides_by_wind(range)
+    average(all_rides_within_wind_speed(range).values)
   end
 
-  def self.all_rides_by_wind_speed(range)
+  def self.highest_number_of_rides_by_wind(range)
+    all_rides_within_wind_speed(range).values.max
+  end
+
+  def self.lowest_number_of_rides_by_visbility(range)
+    all_rides_within_visibility(range).values.min
+  end
+
+  def self.average_number_of_rides_by_visbility(range)
+    average(all_rides_within_visibility(range).values)
+  end
+
+  def self.highest_number_of_rides_by_visbility(range)
+    all_rides_within_visibility(range).values.max
+  end
+
+  def self.all_rides_within_precipitation(range)
+    rides_by_day(days_within_precipitation(range))
+  end
+
+  def self.all_rides_within_wind_speed(range)
     rides_by_day(days_within_wind(range))
   end
 
-  def self.all_rides_by_temp(range)
-    rides_by_day(days_with_high_temperature(range))
+  def self.all_rides_within_visibility(range)
+    rides_by_day(days_within_visibility(range))
+  end
+
+  def self.all_rides_within_temp(range)
+    rides_by_day(days_within_high_temperature(range))
   end
 
   def self.average(collection)
