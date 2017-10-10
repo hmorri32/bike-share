@@ -100,7 +100,20 @@ class Condition < ActiveRecord::Base
   def self.average(collection)
     (collection.sum / collection.length.to_f).round(2)
   end
-  # ROUND wherever we find the range to pass to these functions ^^^
+
+  def self.weather_on_day_with_highest_rides
+    date_array = rides_by_day(all_dates_range).max_by { |day_array| day_array[1] }
+    where(date: date_array[0])
+  end
+
+  def self.weather_on_day_with_lowest_rides
+    date_array = rides_by_day(all_dates_range).min_by { |day_array| day_array[1] }
+    where(date: date_array[0])
+  end
+
+  def self.all_dates_range
+    where(date: minimum(:date)..maximum(:date))
+  end
 end
 
 
