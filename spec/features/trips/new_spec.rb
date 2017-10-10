@@ -7,7 +7,7 @@ it "user sees form with duration form field" do
   expect(page).to have_field("trip[duration]")
 end
 
-it 'user populates form with duration content' do
+it 'user can populate form with duration field' do
   fill_in('trip[duration]', with: 35)
 end
 
@@ -15,8 +15,8 @@ it "user sees form with start date form field" do
   expect(page).to have_field("trip[start_date]")
 end
 
-it 'user populates form with start date content' do
-  fill_in('trip[start_date]', with: "2017-10-08")
+it 'user can populate form with start date field' do
+  fill_in('trip[start_date]', with: "2015-10-08")
 end
 
 it "user sees form with start_station_id form field" do
@@ -34,7 +34,6 @@ end
 it 'user populates form with end date content' do
   fill_in('trip[end_date]', with: "2017-10-08")
 end
-
 
 it "user sees form with end station id form field" do
   expect(page).to have_field("trip[end_station_id]")
