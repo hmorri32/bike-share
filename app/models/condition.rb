@@ -69,6 +69,18 @@ class Condition < ActiveRecord::Base
     all_rides_within_wind_speed(range).values.max
   end
 
+  def self.lowest_number_of_rides_by_visbility(range)
+    all_rides_within_visibility(range).values.min
+  end
+
+  def self.average_number_of_rides_by_visbility(range)
+    average(all_rides_within_visibility(range).values)
+  end
+
+  def self.highest_number_of_rides_by_visbility(range)
+    all_rides_within_visibility(range).values.max
+  end
+
   def self.all_rides_within_precipitation(range)
     rides_by_day(days_within_precipitation(range))
   end
