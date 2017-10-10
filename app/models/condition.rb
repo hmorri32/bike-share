@@ -54,7 +54,15 @@ class Condition < ActiveRecord::Base
   end
 
   def self.lowest_number_of_rides_by_wind(range)
-    
+    all_rides_by_wind_speed(range).values.min
+  end
+
+  def self.average_number_of_rides_by_wind(range)
+    average(all_rides_by_wind_speed(range).values)
+  end
+
+  def self.highest_number_of_rides_by_wind(range)
+    all_rides_by_wind_speed(range).values.max
   end
 
   def self.all_rides_by_precipitation(range)
