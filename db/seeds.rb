@@ -7,6 +7,8 @@ require 'smarter_csv'
 
 # if shit gets real => rake db:drop db:create db:migrate db:seed
 
+# destroy_all pre seed
+
 CSV.foreach('./db/csv/station.csv', headers: true, header_converters: :symbol) do |row|
     new_city          = City.find_or_create_by(name: row[:city])
     installation_date = Date.strptime(row[:installation_date], "%m/%d/%Y")
@@ -39,14 +41,18 @@ SmarterCSV.process('db/csv/trip.csv').each do |row|
               zip_code:          row[:zip_code])
 end
 
+# Condition.destroy_all
+
 CSV.foreach('./db/csv/weather.csv', headers: true, header_converters: :symbol) do |row|
 
-  Condition.create(date:               row[:date],
-                   mean_temperature:   row[:mean_temperature_f],
-                   max_temperature:    row[:max_temperature_f],
-                   min_temperature:    row[:min_temperature_f],
-                   mean_humidity:      row[:mean_humidity],
-                   mean_visibility:    row[:mean_visibility_miles],
-                   mean_wind_speed:    row[:mean_wind_speed_mph],
-                   precipitation:      row[:precipitation_inches])
+  if row[:zip_code] == '94107'
+    Condition.create(date:           row[:date],
+                   mean_temperature: row[:mean_temperature_f],
+                   max_temperature:  row[:max_temperature_f],
+                   min_temperature:  row[:min_temperature_f],
+                   mean_humidity:    row[:mean_humidity],
+                   mean_visibility:  row[:mean_visibility_miles],
+                   mean_wind_speed:  row[:mean_wind_speed_mph],
+                   precipitation:    row[:precipitation_inches])
+  end
 end
