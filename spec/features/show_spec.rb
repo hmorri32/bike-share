@@ -25,4 +25,6 @@ describe "/stations/show" do
   it "user sees installation date" do
     expect(page).to have_content("2013-08-06")
   end
+
+
 end

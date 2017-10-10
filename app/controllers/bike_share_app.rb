@@ -9,6 +9,7 @@ class BikeShareApp < Sinatra::Base
     erb :index
   end
 
+  # get '/station-dashboard'
   get '/stations/dashboard' do
     @stations = Station.all
     erb :'/stations/dashboard'
@@ -31,7 +32,7 @@ class BikeShareApp < Sinatra::Base
 
   post '/stations' do
     params[:station][:installation_date] = Date.strptime((params[:station][:installation_date]), "%Y-%m-%d")
-
+    # DO THIS IN MODEL ^^
     Station.create(params[:station])
     redirect '/stations'
   end
