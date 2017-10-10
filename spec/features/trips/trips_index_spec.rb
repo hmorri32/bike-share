@@ -59,6 +59,19 @@ it "has zip code associated with trip" do
   expect(page).to have_content(80210)
 end
 
+it "user can click Trip #1 and go to Trip Id 1 show page" do
+  click_link("Trip #1")
+  expect(current_path).to eq("/trips/1")
+end
 
+it 'user clicks edit for trip #1, page loads to edit page for specific station' do
+  click_button("EDIT")
+  expect(current_path).to eq("/trips/1/edit")
+end
+
+it 'user clicks delete for trip #1, page loads back to trips page without deleted trip' do
+  click_button("DELETE")
+  expect(current_path).to eq("/trips")
+end
 
 end
