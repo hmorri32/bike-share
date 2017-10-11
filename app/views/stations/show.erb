@@ -1,13 +1,49 @@
-<a href="/stations">Stations Index</a>
-
-<h3><%= @station.name %></h3>
-<p><%= @station.dock_count %></p>
-<p><%= @station.city.name %></p>
-<p><%= @station.installation_date %></p>
-<p><%= Trip.rides_started(@station.id) %></p>
-<p><%= Trip.rides_ended(@station.id) %></p>
-<p><%= Trip.frequent_destination(@station.id) %></p>
-<p><%= Trip.origin_destination(@station.id) %></p>
-<p><%= Trip.busiest_date(@station.id) %></p>
-<p><%= Trip.frequent_zipcode(@station.id) %></p>
-<p><%= Trip.frequent_bike(@station.id) %></p>
+<% @title = "Station Details" %>
+  <div class="sides">
+    <a class='a-logo' href='/'>Bike Share</a>
+    <a href="/stations" class="logo">STATIONS</a>
+    <a href="/trips" class="logo">TRIPS</a>
+    <a href="/conditions" class="logo">CONDITIONS</a>
+  </div>
+  <div class='trip-index-container'>
+    <header>
+      <h1><span>Station</span> Details</h1>
+    </header>
+    <div class='trip-card'>
+      <ul>
+        <li><span>Station name:</span>
+          <%= @station.name %>
+        </li>
+        <li><span>Bike Count:</span>
+          <%= @station.dock_count %>
+        </li>
+        <li><span>City:</span>
+          <%= @station.city.name %>
+        </li>
+        <li><span>Installation Date:</span>
+          <%= @station.installation_date %>
+        </li>
+        <li><span>Number of Rides Started Here:</span>
+          <%= Trip.rides_started(@station.id) %>
+        </li>
+        <li><span>Number of Rides Ended Here:</span>
+          <%= Trip.rides_ended(@station.id) %>
+        </li>
+        <li><span>Most Frequent Destination Station:</span>
+          <%= Trip.frequent_destination(@station.id) %>
+        </li>
+        <li><span>Most Frequent Origin Station:</span>
+          <%= Trip.origin_destination(@station.id) %>
+        </li>
+        <li><span>Busiest Date:</span>
+          <%= Trip.busiest_date(@station.id) %>
+        </li>
+        <li><span>Most Frequent User Zip Code:</span>
+          <%= Trip.frequent_zipcode(@station.id) %>
+        </li>
+        <li><span>Most Used Bike:</span>
+          <%= Trip.frequent_bike(@station.id) %>
+        </li>
+      </ul>
+    </div>
+  </div>
