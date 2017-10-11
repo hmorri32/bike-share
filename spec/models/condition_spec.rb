@@ -2,6 +2,8 @@ RSpec.context Condition do
   describe 'Class Methods' do
     before do
       ['SF', 'Santa Cruz', 'Ocean Beach'].each { |city| City.create(name: city) }
+      sf, santa_cruz, ocean_beach = City.find(1), City.find(2), City.find(3)
+
       sf.stations.create(         name: 'chillest',
                                   dock_count: 20,
                                   installation_date: "2017-08-06",
@@ -50,7 +52,7 @@ RSpec.context Condition do
                   zip_code: 80210)
 
       Trip.create(duration: 3005,
-                  start_date: "2014-11-3",
+                  start_date: "2014-11-4",
                   start_time: "10:10",
                   start_station_id: 2,
                   end_date: "11-3-2014",
@@ -99,17 +101,17 @@ RSpec.context Condition do
                        min_temperature: 75,
                        mean_humidity: 75,
                        mean_visibility: 3,
-                       mean_wind_speed: 15,
-                       precipitation: 0.5,)
+                       mean_wind_speed: 2,
+                       precipitation: 2,)
 
-      Condition.create(date: '2014-11-3',
+      Condition.create(date: '2014-11-4',
                        max_temperature: 85,
                        mean_temperature: 80,
                        min_temperature: 75,
                        mean_humidity: 75,
                        mean_visibility: 3,
-                       mean_wind_speed: 15,
-                       precipitation: 0.5,)
+                       mean_wind_speed: 6,
+                       precipitation: 1.3,)
 
       Condition.create(date: '2013-08-29',
                        max_temperature: 85,
@@ -117,8 +119,8 @@ RSpec.context Condition do
                        min_temperature: 75,
                        mean_humidity: 75,
                        mean_visibility: 3,
-                       mean_wind_speed: 15,
-                       precipitation: 0.5,)
+                       mean_wind_speed: 7,
+                       precipitation: 15,)
 
       Condition.create(date: '2013-08-30',
                        max_temperature: 85,
@@ -126,8 +128,8 @@ RSpec.context Condition do
                        min_temperature: 75,
                        mean_humidity: 75,
                        mean_visibility: 3,
-                       mean_wind_speed: 15,
-                       precipitation: 0.5,)
+                       mean_wind_speed: 12,
+                       precipitation: 2.5,)
 
       Condition.create(date: "2013-09-29",
                        max_temperature: 85,
@@ -135,9 +137,82 @@ RSpec.context Condition do
                        min_temperature: 75,
                        mean_humidity: 75,
                        mean_visibility: 3,
-                       mean_wind_speed: 15,
-                       precipitation: 0.5,)
+                       mean_wind_speed: 10,
+                       precipitation: 1,)
     end
+
+    describe ".days_within_high_temperature" do
+      it 'returns days within a temperature range' do
+        expect(Condition.days_within_high_temperature(80).length).to eql(5)
+        expect(Condition.days_within_high_temperature(80).first.max_temperature).to eql(85)
+      end
+    end
+
+    describe ".days_within_precipitation" do
+      it 'returns days within a precipitation range' do
+        expect(Condition.days_within_precipitation(1).length).to eql(2)
+        expect(Condition.days_within_precipitation(2).first.precipitation).to eql(2.0)
+      end
+    end
+
+    describe ".days_within_wind" do
+      it 'returns days within a wind range' do
+        expect(Condition.days_within_wind(5).length).to eql(2)
+      end
+    end
+
+    describe ".days_within_visibility" do
+      it 'returns days within a visibility range' do
+        expect(Condition.days_within_visibility(5).length).to eql(0)
+        expect(Condition.days_within_visibility(2).length).to eql(5)
+      end
+    end
+
+    describe ".rides_by_day" do
+      it 'groups all rides by weather type' do
+        expect(Condition.rides_by_day(Condition.days_within_precipitation(2)).length).to eql(1)
+        expect(Condition.rides_by_day(Condition.days_within_wind(5)).length).to eql(2)
+        expect(Condition.rides_by_day(Condition.days_within_precipitation(1)).length).to eql(2)
+        expect(Condition.rides_by_day(Condition.days_within_high_temperature(80)).length).to eql(5)
+      end
+    end
+
+    describe ".lowest_number_of_rides_by_temp" do
+      it 'returns lowest number of rides in a temperature range' do
+        expect(Condition.lowest_number_of_rides_by_temp(80)).to eql(1)
+      end
+    end
+
+    describe ".average_number_of_rides_by_temp" do
+      it 'returns average number of rides in a temperature range' do
+        expect(Condition.average_number_of_rides_by_temp(80)).to eql(1.0)
+      end
+    end
+
+    describe ".highest_number_of_rides_by_temp" do
+      it 'returns highest number of rides in a temperature range' do
+        expect(Condition.highest_number_of_rides_by_temp(85)).to eql(1)
+      end
+    end
+
+    describe ".lowest_number_of_rides_by_precipitation" do
+      it 'returns loest number of rides in a precipitation range' do
+        expect(Condition.lowest_number_of_rides_by_precipitation(1)).to eql(1)
+      end
+    end
+
+    describe ".average_number_of_rides_by_precipitation" do
+      it 'returns loest number of rides in a precipitation range' do
+        expect(Condition.average_number_of_rides_by_precipitation(1)).to eql(1.0)
+      end
+    end
+
+    describe ".highest_number_of_rides_by_precipitation" do
+      it 'returns loest number of rides in a precipitation range' do
+        expect(Condition.highest_number_of_rides_by_precipitation(1)).to eql(1)
+      end
+    end
+
   end
   describe 'Validates' do
     it 'creates a condition given all necessary parameters' do
