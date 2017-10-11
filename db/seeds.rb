@@ -43,9 +43,9 @@ end
 
 # Condition.destroy_all
 
-CSV.foreach('./db/csv/weather.csv', headers: true, header_converters: :symbol) do |row|
-
-  if row[:zip_code] == '94107'
+SmarterCSV.process('db/csv/weather.csv').each do |row|
+  row[:date] = Date.strptime(row[:date], '%m/%d/%Y')
+  if row[:zip_code] == 94107
     Condition.create(date:           row[:date],
                    mean_temperature: row[:mean_temperature_f],
                    max_temperature:  row[:max_temperature_f],

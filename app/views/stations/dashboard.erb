@@ -4,13 +4,13 @@
   <a href="/trips"      class="logo">TRIPS</a>
   <a href="/conditions" class="logo">CONDITIONS</a>
 </div>
-<div class=dashboard>
+<div class="dashboard">
   Total stations:         <%= Station.station_count %><br>
   Average bikes/station:  <%= Station.average_bikes %><br>
   Max bikes/station:      <%= Station.max_bikes_per_station %><br>
   station w/ most bikes:  <%= Station.stations_with_most_bikes %><br>
   station w/ least bikes: <%= Station.stations_with_least_bikes %><br>
   Min bikes/station:      <%= Station.min_bikes_per_station %><br>
-  Oldest station:         <%= Station.oldest_station %><br>
-  Newst  station:         <%= Station.newest_station %><br>
+  Oldest station:         <%= Station.oldest_station.name %><br>
+  Newst  station:         <%= Station.newest_station.name %><br>
 </div>
