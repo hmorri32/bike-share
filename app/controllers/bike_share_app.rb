@@ -57,7 +57,7 @@ class BikeShareApp < Sinatra::Base
   end
 
   get '/trips-dashboard' do
-    @cool_variable = ['stuff', 'and', 'things']
+    @month_breakdown = Trip.parse_monthly_rides
     erb :'trips/dashboard'
   end
 

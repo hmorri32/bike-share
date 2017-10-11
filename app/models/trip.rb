@@ -13,15 +13,15 @@ class Trip < ActiveRecord::Base
   belongs_to :end_station,   :class_name => 'Station', :foreign_key => 'end_station_id'
 
   def self.average_duration
-    average(:duration)
+    average(:duration).floor / 60
   end
 
   def self.longest_ride
-    maximum(:duration)
+    maximum(:duration).floor / 60
   end
 
   def self.shortest_ride
-    minimum(:duration)
+    minimum(:duration).floor / 60
   end
 
   def self.station_most_starting_rides
@@ -42,18 +42,9 @@ class Trip < ActiveRecord::Base
     group("DATE_TRUNC('year', start_date)").order("DATE_TRUNC('year', start_date) ASC").count(:start_date)
   end
 
-#returns an array of arrays, first element will be the month,
-#second will be the year,
-#third will be the amount of trips]
-# GROSS!!
   def self.parse_monthly_rides
-    parse = monthly_rides.map do |date, trips|
-      [Date::MONTHNAMES[date.month], date.year, trips]
-    end
+    monthly_rides.map { |date, trips|[Date::MONTHNAMES[date.month], date.year, trips] }
   end
-
-
-#bike is the bike_id and trips is the number of trips
 
   def self.ridden_bikes
     group(:bike_id).order("count_id DESC").count(:id)
@@ -64,20 +55,27 @@ class Trip < ActiveRecord::Base
   end
 
   def self.least_ridden_bike
-    ridden_bikes.last
+    ridden_bikes.min_by { |bike, count| count }
   end
 
   def self.subscription_breakdown
-    customer = group(:subscription_type).order("count_id ASC").count(:id).first
-    subscriber = group(:subscription_type).order("count_id DESC").count(:id).first
-    return customer, subscriber
+    group(:subscription_type).count("id")
   end
 
-  def self.subscription_percentage
-    total      = subscription_breakdown[0][1] + subscription_breakdown[1][1]
-    customer   = ((subscription_breakdown[0][1].to_f / total) * 100).round
-    subscriber = ((subscription_breakdown[1][1].to_f / total) * 100).round
-    return customer, subscriber
+  def self.subscriber_count
+    subscription_breakdown.values.last
+  end
+
+  def self.customer_count
+    subscription_breakdown.values.first
+  end
+
+  def self.subscriber_percentage
+    ((subscriber_count / count.to_f) * 100).floor(2)
+  end
+
+  def self.customer_percentage
+    ((customer_count / count.to_f) * 100).floor(2)
   end
 
   def self.date_with_highest_trips
@@ -110,7 +108,6 @@ class Trip < ActiveRecord::Base
     Station.find(destination).name
   end
 
-  # .limit vs .first
   def self.busiest_date(id)
     start_station(id).group(:start_date).order("count(start_date) DESC").count(:start_date).first[0]
   end
