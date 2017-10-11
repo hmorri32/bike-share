@@ -114,14 +114,43 @@ header {
   50% {
     transform: scale(1.2); } }
 /* Station Dashboard*/
+.station-dashboard {
+  background-image: url(https://images.unsplash.com/photo-1476664498204-2675a18e89d0?dpr=1&auto=compress,format&fit=crop&w=3200&h=&q=80&cs=tinysrgb&crop=);
+  background-size: cover;
+  background-attachment: fixed; }
+
+.station-box {
+  display: flex;
+  justify-content: center; }
+
+.dashboard {
+  color: #f2f2f2;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border: 3px solid #2EC4B6;
+  margin: 10px;
+  padding: 10px;
+  width: 500px; }
+
+.dashboard li {
+  font-size: 1.5em;
+  padding: 10px; }
+
+.dashboard span {
+  font-weight: 700; }
+
 /* Station Index */
-.station-new a {
-  color: #011627;
-  font-size: 2em;
-  margin: 35px 0px 25px 0px; }
-  .station-new a span {
-    font-weight: 700;
-  }
+.stations-table {
+  width: 100%;
+  border-collapse: collapse; }
+  .stations-table td,
+  .stations-table th {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #ddd; }
+  .stations-table tr:nth-child(even) {
+    background-color: #d3d4d9; }
 
 /* Station New */
 #new_h1 {
