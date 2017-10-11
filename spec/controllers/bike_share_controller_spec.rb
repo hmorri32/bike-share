@@ -20,8 +20,8 @@ RSpec.context 'Bike Share Controller' do
     it "displays dashboard content" do
       get '/stations-dashboard'
 
-      expect(last_response.body).to include("Average bikes/station:")
-      expect(last_response.body).to include("Max bikes/station:")
+      expect(last_response.body).to include("Average Bikes:")
+      expect(last_response.body).to include("Max Bikes at Station:")
     end
   end
 
