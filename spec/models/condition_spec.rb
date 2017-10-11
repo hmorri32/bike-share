@@ -196,20 +196,97 @@ RSpec.context Condition do
     end
 
     describe ".lowest_number_of_rides_by_precipitation" do
-      it 'returns loest number of rides in a precipitation range' do
+      it 'returns lowest number of rides in a precipitation range' do
         expect(Condition.lowest_number_of_rides_by_precipitation(1)).to eql(1)
       end
     end
 
     describe ".average_number_of_rides_by_precipitation" do
-      it 'returns loest number of rides in a precipitation range' do
+      it 'returns lowest number of rides in a precipitation range' do
         expect(Condition.average_number_of_rides_by_precipitation(1)).to eql(1.0)
       end
     end
 
     describe ".highest_number_of_rides_by_precipitation" do
-      it 'returns loest number of rides in a precipitation range' do
+      it 'returns lowest number of rides in a precipitation range' do
         expect(Condition.highest_number_of_rides_by_precipitation(1)).to eql(1)
+      end
+    end
+
+    describe ".lowest_number_of_rides_by_wind" do
+      it 'returns lowest number of rides in a wind range' do
+        expect(Condition.lowest_number_of_rides_by_wind(7)).to eql(1)
+      end
+    end
+
+    describe ".average_number_of_rides_by_wind" do
+      it 'returns average number of rides in a wind range' do
+        expect(Condition.average_number_of_rides_by_wind(7)).to eql(1.0)
+      end
+    end
+
+    describe ".highest_number_of_rides_by_wind" do
+      it 'returns highest number of rides in a wind range' do
+        expect(Condition.highest_number_of_rides_by_wind(7)).to eql(1)
+      end
+    end
+
+    describe ".lowest_number_of_rides_by_visbility" do
+      it 'returns lowest number of rides in a visibility range' do
+        expect(Condition.lowest_number_of_rides_by_visbility(3)).to eql(1)
+      end
+    end
+
+    describe ".average_number_of_rides_by_visbility" do
+      it 'returns average number of rides in a visibility range' do
+        expect(Condition.average_number_of_rides_by_visbility(3)).to eql(1.0)
+      end
+    end
+
+    describe ".highest_number_of_rides_by_visbility" do
+      it 'returns highest number of rides in a visibility range' do
+        expect(Condition.highest_number_of_rides_by_visbility(3)).to eql(1)
+      end
+    end
+
+    describe ".all_rides_within_precipitation" do
+      it 'returns hash with date and ride numbers' do
+        expect(Condition.all_rides_within_precipitation(1).class).to eql(Hash)
+        expect(Condition.all_rides_within_precipitation(1).first.class).to eql(Array)
+        expect(Condition.all_rides_within_precipitation(1).first.first.class).to eql(Date)
+      end
+    end
+
+    describe ".all_rides_within_wind_speed" do
+      it 'returns hash with date and ride numbers' do
+        expect(Condition.all_rides_within_wind_speed(10).class).to eql(Hash)
+        expect(Condition.all_rides_within_wind_speed(10).first.class).to eql(Array)
+        expect(Condition.all_rides_within_wind_speed(10).first.first.class).to eql(Date)
+      end
+    end
+
+    describe ".all_rides_within_visibility" do
+      it 'returns hash with date and ride numbers' do
+        expect(Condition.all_rides_within_visibility(3).class).to eql(Hash)
+        expect(Condition.all_rides_within_visibility(3).first.class).to eql(Array)
+        expect(Condition.all_rides_within_visibility(3).first.first.class).to eql(Date)
+      end
+    end
+
+    describe ".all_rides_within_temp" do
+      it 'returns hash with date and ride numbers' do
+        expect(Condition.all_rides_within_temp(85).class).to eql(Hash)
+        expect(Condition.all_rides_within_temp(85).first.class).to eql(Array)
+        expect(Condition.all_rides_within_temp(85).first.first.class).to eql(Date)
+      end
+    end
+
+    describe ".weather_on_day_with_highest_rides" do
+      it 'returns conditions on day with highest rides' do
+        expect(Condition.weather_on_day_with_highest_rides.first.max_temperature).to eql(85)
+        expect(Condition.weather_on_day_with_highest_rides.first.min_temperature).to eql(75)
+        expect(Condition.weather_on_day_with_highest_rides.first.mean_temperature).to eql(80)
+        expect(Condition.weather_on_day_with_highest_rides.first.mean_visibility).to eql(3)
       end
     end
 
