@@ -50,13 +50,13 @@ RSpec.describe Station do
 
    describe ".newest_station" do
       it "returns most recently built station" do
-        expect(Station.newest_station).to eql('chillest')
+        expect(Station.newest_station.name).to eql('chillest')
       end
     end
 
    describe ".oldest_station" do
       it "returns oldest station" do
-        expect(Station.oldest_station).to eql('surf shack')
+        expect(Station.oldest_station.name).to eql('surf shack')
       end
     end
   end

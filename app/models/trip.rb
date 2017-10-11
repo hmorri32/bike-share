@@ -54,15 +54,17 @@ class Trip < ActiveRecord::Base
 
 
 #bike is the bike_id and trips is the number of trips
+
+  def self.ridden_bikes
+    group(:bike_id).order("count_id DESC").count(:id)
+  end
+
   def self.most_ridden_bike
-    bike  = group(:bike_id).order("count_id DESC").count(:id).first
-    return bike[0], bike[1]
+    ridden_bikes.first
   end
 
   def self.least_ridden_bike
-    bike = group(:bike_id).order("count_id DESC").count(:id).last
-    trips = bike[1]
-    return bike[0], trips
+    ridden_bikes.last
   end
 
   def self.subscription_breakdown
@@ -86,8 +88,12 @@ class Trip < ActiveRecord::Base
     group(:start_date).order("count_id ASC").count(:id).first
   end
 
+  def self.start_station(id)
+    where(start_station_id: id)
+  end
+
   def self.rides_started(id)
-    where(start_station_id: id).count
+    start_station(id).count
   end
 
   def self.rides_ended(id)
@@ -95,30 +101,25 @@ class Trip < ActiveRecord::Base
   end
 
   def self.frequent_destination(id)
-    trips = where(start_station_id: id)
-    destination = trips.group(:end_station_id).order("count_id DESC").count(:id).first[0]
+    destination = start_station(id).group(:end_station_id).order("count_id DESC").count(:id).first[0]
     Station.find(destination).name
   end
 
   def self.origin_destination(id)
-    trips = where(start_station_id: id)
-    destination = trips.group(:start_station_id).order("count_id DESC").count(:id).first[0]
+    destination = start_station(id).group(:start_station_id).order("count_id DESC").count(:id).first[0]
     Station.find(destination).name
   end
 
   # .limit vs .first
   def self.busiest_date(id)
-    trips = where(start_station_id: id)
-    trips.group(:start_date).order("count(start_date) DESC").count(:start_date).first[0]
+    start_station(id).group(:start_date).order("count(start_date) DESC").count(:start_date).first[0]
   end
 
   def self.frequent_zipcode(id)
-    trips = where(start_station_id: id)
-    trips.group(:zip_code).order("count(zip_code) DESC").count(:zip_code).first[0]
+    start_station(id).group(:zip_code).order("count(zip_code) DESC").count(:zip_code).first[0]
   end
 
   def self.frequent_bike(id)
-    trips = where(start_station_id: id)
-    trips.group(:bike_id).order("count(bike_id) DESC").count(:bike_id).first[0]
+    start_station(id).group(:bike_id).order("count(bike_id) DESC").count(:bike_id).first[0]
   end
 end

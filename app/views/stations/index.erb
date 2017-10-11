@@ -40,31 +40,3 @@
     <% end %>
     <%= will_paginate @stations, :page_links => false %>
 </div>
-
-<!-- <h2><a href='/stations/new'>New Station</a></h2>
-<table class='stations-table'>
-  <tr>
-    <th><h3>Station</h3></th>
-    <th><h3>Dock Count</h3></th>
-    <th><h3>City</h3></th>
-    <th><h3>Installation Date</h3></th>
-  </tr>
-  <% @stations.each do |station| %>
-  <tr>
-    <td><h4><%= station.name %></h4></td>
-    <td><h4><%= station.dock_count %></h4></td>
-    <td><h4><%= station.city.name %></h4></td>
-    <td><h4><%= station.installation_date %></h4></td>
-  </tr>
-
-  <tr>
-    <td><a href="/stations/<%= station.id %>/edit">Edit</a></td>
-    <td><a href="/stations/<%= station.id %>">Show</a></td>
-    <form action="/stations/<%= station.id %>" method="POST">
-      <input type="hidden" name="_method" value="DELETE">
-      <td><input type="submit" value="delete"/></td>
-    </form>
-  </tr>
-<% end %>
-</table>
-<%= will_paginate @stations, :page_links => false %> -->
