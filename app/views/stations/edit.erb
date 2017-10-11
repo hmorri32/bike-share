@@ -1,3 +1,11 @@
+<body class="station-edit">  
+<div class="sides">
+  <a class='a-logo' href='/'>Bike Share</a>
+  <a href="/stations"   class="logo">STATIONS</a>
+  <a href="/trips"      class="logo">TRIPS</a>
+  <a href="/conditions" class="logo">CONDITIONS</a>
+</div>
+
 <div class='edit-container'>
   <form action="/stations/<%= @station.id %>" method="post">
   <h1>EDIT THIS STATION</h1>
@@ -15,3 +23,4 @@
     <input type="submit" value="SUBMIT">
   </form>
 </div>
+</body>
