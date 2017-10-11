@@ -40,7 +40,7 @@ RSpec.context Trip do
                                   lat: 150,
                                   lng: 250)
 
-      Trip.create(duration: 20,
+      Trip.create(duration: 2000,
                   start_date: "11-3-2014",
                   start_time: "14:44",
                   start_station_id: 1,
@@ -51,7 +51,7 @@ RSpec.context Trip do
                   subscription_type: "Subscriber",
                   zip_code: 80210)
 
-      Trip.create(duration: 35,
+      Trip.create(duration: 3005,
                   start_date: "11-3-2014",
                   start_time: "10:10",
                   start_station_id: 2,
@@ -62,7 +62,7 @@ RSpec.context Trip do
                   subscription_type: "Customer",
                   zip_code: 33156)
 
-      Trip.create(duration: 100,
+      Trip.create(duration: 1000,
                   start_date: "2013-08-29 13:22",
                   start_time: "13:22",
                   start_station_id: 1,
@@ -73,7 +73,7 @@ RSpec.context Trip do
                   subscription_type: 'Customer',
                   zip_code: 94127)
 
-      Trip.create(duration: 50,
+      Trip.create(duration: 5200,
                   start_date: "2013-08-29 13:22",
                   start_time: "13:22",
                   start_station_id: 1,
@@ -84,7 +84,7 @@ RSpec.context Trip do
                   subscription_type: 'Subscriber',
                   zip_code: 94127)
 
-      Trip.create(duration: 75,
+      Trip.create(duration: 7522,
                   start_date: "2013-08-29 12:22",
                   start_time: "14:22",
                   start_station_id: 3,
@@ -99,19 +99,19 @@ RSpec.context Trip do
 
     describe '.average_duration' do
       it 'returns average trip duration' do
-        expect(Trip.average_duration).to eql(56)
+        expect(Trip.average_duration).to eql(62)
       end
     end
 
     describe '.longest_ride' do
       it 'returns the longest ride' do
-        expect(Trip.longest_ride).to eql(100)
+        expect(Trip.longest_ride).to eql(125)
       end
     end
 
     describe '.shortest_ride' do
       it 'returns the shortest ride' do
-        expect(Trip.shortest_ride).to eql(20)
+        expect(Trip.shortest_ride).to eql(16)
       end
     end
   end

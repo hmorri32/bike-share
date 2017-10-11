@@ -1,4 +1,4 @@
-class Condition < ActiveRecord::Base
+  class Condition < ActiveRecord::Base
   self.primary_key = "date"
 
   validates :date,

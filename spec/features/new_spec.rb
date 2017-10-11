@@ -23,9 +23,9 @@ it "user sees form with city field" do
   expect(page).to have_field("station[city_id]")
 end
 
-# it 'user selects city from drop down menu' do
-#   select("SAN JOSE", :from => "station[city_id]")
-# end
+it 'user selects city from drop down menu' do
+  expect(page).to have_select('city id', selected: 'Option 2')
+end
 
 it "user sees form with installation date field" do
   expect(page).to have_field("station[installation_date]" )

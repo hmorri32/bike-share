@@ -11,9 +11,35 @@ describe '/stations/dashboard' do
 
 
   it 'user can see total number of stations' do
-    expect(page).to have_content("Total stations")
+    expect(page).to have_content(3)
   end
 
+  it 'user can see average bike per station' do
+    expect(page).to have_content(27)
+  end
 
+  it 'user can see max bikes per station' do
+    expect(page).to have_content(0)
+  end
+
+  it 'user can see station with most bikes' do
+    expect(page).to have_content(0)
+  end
+
+  it 'user can see station with least bikes' do
+    expect(page).to have_content(0)
+  end
+
+  it 'user can see minimum bikes per station' do
+    expect(page).to have_content(0)
+  end
+
+  it 'user can see oldest station' do
+    expect(page).to have_content(0)
+  end
+
+  it 'user can see newest station' do
+    expect(page).to have_content(0)
+  end
 
 end
