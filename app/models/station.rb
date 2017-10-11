@@ -10,7 +10,6 @@ class Station < ActiveRecord::Base
   belongs_to :city
   belongs_to :trip
 
-  # format date method as before save action
   def self.format_date(date)
     Date.strptime(date[:station][:installation_date], "%Y-%m-%d")
   end
