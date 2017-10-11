@@ -11,6 +11,9 @@ class Station < ActiveRecord::Base
   belongs_to :trip
 
   # format date method as before save action
+  def self.format_date(date)
+    Date.strptime(date[:station][:installation_date], "%Y-%m-%d")
+  end
 
   def self.station_count
     count
@@ -38,15 +41,11 @@ class Station < ActiveRecord::Base
 
   def self.newest_station
     max     = Station.maximum :installation_date
-    station = Station.find_by  installation_date: max
-    # FIX THIS
-    "#{station.name}"
+    Station.find_by  installation_date: max
   end
 
   def self.oldest_station
     min     = Station.minimum :installation_date
-    station = Station.find_by  installation_date: min
-    # also this.
-    "#{station.name}"
+    Station.find_by  installation_date: min
   end
 end

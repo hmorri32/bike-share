@@ -9,8 +9,7 @@ class BikeShareApp < Sinatra::Base
     erb :index
   end
 
-  # get '/station-dashboard'
-  get '/stations/dashboard' do
+  get '/stations-dashboard' do
     @stations = Station.all
     erb :'/stations/dashboard'
   end
@@ -31,8 +30,7 @@ class BikeShareApp < Sinatra::Base
   end
 
   post '/stations' do
-    params[:station][:installation_date] = Date.strptime((params[:station][:installation_date]), "%Y-%m-%d")
-    # DO THIS IN MODEL ^^
+    params[:station][:installation_date] = Station.format_date(params)
     Station.create(params[:station])
     redirect '/stations'
   end
@@ -58,7 +56,7 @@ class BikeShareApp < Sinatra::Base
     erb :'/trips/index'
   end
 
-  get '/trips/dashboard' do
+  get '/trips-dashboard' do
     @cool_variable = ['stuff', 'and', 'things']
     erb :'trips/dashboard'
   end
@@ -90,6 +88,11 @@ class BikeShareApp < Sinatra::Base
   delete '/trips/:id' do |id|
     Trip.destroy(id.to_i)
     redirect "/trips"
+  end
+
+  get '/weather-dashboard' do
+    @condition = Condition.all
+    erb :'/condition/dashboard'
   end
 
   get '/conditions' do
