@@ -1,0 +1,54 @@
+<div class="sides">
+  <a class='a-logo' href='/'>Bike Share</a>
+  <a href="/stations"   class="logo">STATIONS</a>
+  <a href="/trips"      class="logo">TRIPS</a>
+  <a href="/conditions" class="logo">CONDITIONS</a>
+</div>
+<header class="station-new">
+  <a href="/conditions/new"><span>New</span> Condition</a>
+</header>
+
+<div class='trip-index-container'>
+  <header>
+    <h1><span>All</span> Conditions</h1>
+  </header>
+  <% @paginated.each do |condition| %>
+    <div class='trip-card'>
+      <ul>
+        <a href="/stations/<%= condition.id %>">Condition</a>
+        <li><span>Date:</span>
+          <%= condition.date %>
+        </li>
+        <li><span>Max Temperature: </span>
+          <%= condition.max_temperature %>
+        </li>
+        <li><span>Mean Temperature:</span>
+          <%= condition.mean_temperature %>
+        </li>
+        <li><span>Min Temperature:</span>
+          <%= condition.min_temperature%>
+        </li>
+        <li><span>Mean Humidity:</span>
+          <%= condition.mean_humidity%>
+        </li>
+        <li><span>Mean Visibility:</span>
+          <%= condition.mean_visibility%>
+        </li>
+        <li><span>Mean Wind Speed:</span>
+          <%= condition.mean_wind_speed%>
+        </li>
+        <li><span>Precipitation:</span>
+          <%= condition.precipitation%>
+        </li>
+      </ul>
+      <form action="/conditions/<%= condition.id %>/edit" method="GET">
+        <input type="submit" value="EDIT">
+      </form>
+      <form action="/conditions/<%= condition.id %>" method="POST">
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="submit" value="DELETE">
+      </form>
+    </div>
+    <% end %>
+    <%= will_paginate @paginated, :page_links => false %>
+</div>
