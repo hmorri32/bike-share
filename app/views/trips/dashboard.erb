@@ -1,38 +1,71 @@
-<!-- TODO - style and format this mess -->
-
 <% @title = "Trip Dashboard" %>
-
-<div class="sides">
-  <a class='a-logo' href='/'>Bike Share</a>
-  <a href="/stations"   class="logo">STATIONS</a>
-  <a href="/trips"      class="logo">TRIPS</a>
-  <a href="/conditions" class="logo">CONDITIONS</a>
-</div>
-
-<br>Average trip duration: <%= Trip.average_duration %> minutes
-<br>Longest Ride: <%= Trip.longest_ride %> minutes
-<br>Shortest Ride: <%= Trip.shortest_ride %> minutes
-<br>Station with the most rides as a starting place.
-: <%= Trip.station_most_starting_rides %>
-<br> Station with the most rides as an ending place.
-: <%= Trip.station_most_ending_rides %>
-<br> Month by Month breakdown TBD
-<br> Most Ridden Bike ID: <%= Trip.most_ridden_bike.first %>
-<br> Most Ridden Bike Ride Count: <%= Trip.most_ridden_bike.last %>
-<br> Least Ridden Bike ID: <%= Trip.least_ridden_bike.first %>
-<br> Least Ridden Bike Ride Count: <%= Trip.least_ridden_bike.last %>
-<br> Subscriber count <%= Trip.subscriber_count %>
-<br> Subscriber Percentage <%= Trip.subscriber_percentage %>
-<br> Customer count <%= Trip.customer_count %>
-<br> Customer Percentage <%= Trip.customer_percentage %>
-<br> Date with highest number of trips <%= Trip.date_with_highest_trips %>
-<br> Date with lowest number of trips <%= Trip.date_with_lowest_trips %>
-<br><br>MONTHLY STUFF <br><br>
-
-<% @month_breakdown.each do |thing| %>
-  <div>
-    <p>Month: <%= thing.slice(0) %></p>
-    <p>Year: <%= thing.slice(1) %></p>
-    <p>Ride Count: <%= thing.slice(2) %></p>
+  <div class="sides">
+    <a class='a-logo' href='/'>Bike Share</a>
+    <a href="/stations" class="logo">STATIONS</a>
+    <a href="/trips" class="logo">TRIPS</a>
+    <a href="/conditions" class="logo">CONDITIONS</a>
   </div>
-<% end %>
+  <div class='trip-index-container'>
+    <header>
+      <h1><span>Trip</span> Dashboard</h1>
+    </header>
+    <h1>ANALYTICS</h1>
+    <div class='trip-card'>
+      <ul>
+        <li><span>Average trip duration:</span>
+          <%= Trip.average_duration %> minutes</li>
+        <li> <span>Longest Ride:</span>
+          <%= Trip.longest_ride %> minutes</li>
+        <li> <span> Shortest Ride:</span>
+          <%= Trip.shortest_ride %> minutes</li>
+        <li> <span>Station where most rides start:</span>
+          <%= Trip.station_most_starting_rides %>
+        </li>
+        <li> <span>Station where most rides end:</span>
+          <%= Trip.station_most_ending_rides %>
+        </li>
+        <li> <span> Most Ridden Bike ID:</span>
+          <%= Trip.most_ridden_bike.first %>
+        </li>
+        <li> <span> Most Ridden Bike Ride Count:</span>
+          <%= Trip.most_ridden_bike.last %>
+        </li>
+        <li> <span> Least Ridden Bike ID:</span>
+          <%= Trip.least_ridden_bike.first %>
+        </li>
+        <li> <span> Least Ridden Bike Ride Count:</span>
+          <%= Trip.least_ridden_bike.last %>
+        </li>
+        <li> <span> Subscriber count</span>
+          <%= Trip.subscriber_count %>
+        </li>
+        <li> <span>Subscriber Percentage</span>
+          <%= Trip.subscriber_percentage %>
+        </li>
+        <li> <span> Customer count</span>
+          <%= Trip.customer_count %>
+        </li>
+        <li> <span> Customer Percentage</span>
+          <%= Trip.customer_percentage %>
+        </li>
+        <li> <span> Date with highest number of trips</span>
+          <%= Trip.date_with_highest_trips.slice(0) %>
+        </li>
+        <li> <span> Date with lowest number of trips</span>
+          <%= Trip.date_with_lowest_trips.slice(0) %>
+        </li>
+      </ul>
+    </div>
+    <h1><span>MONTHLY</span> BREAKDOWN</h1>
+    <div class='month-container'>
+      <% @month_breakdown.each do |month| %>
+        <div class='monthly-breakdown trip-card'>
+          <h2><span> <%= month.slice(0) %></span> <%= month.slice(1) %></h2>
+
+
+          <p><span>Ride Count:</span> <%= month.slice(2) %>
+          </p>
+        </div>
+        <% end %>
+    </div>
+  </div>
