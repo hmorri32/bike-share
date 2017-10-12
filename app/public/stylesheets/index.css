@@ -41,7 +41,7 @@ header {
   -webkit-backface-visibility: hidden;
   -webkit-transform: translateZ(0) scale(1, 1);
   transform: translateZ(0);
-  background: #1B2030 url(https://images.unsplash.com/photo-1467087073423-7d287513b0cd) top center no-repeat;
+  background: #1B2030 url(https://images.unsplash.com/photo-1474302694023-9711af8045cf) top center no-repeat;
   background-size: cover;
   background-attachment: fixed;
   animation: grow 60s  linear 10ms infinite;
@@ -52,7 +52,7 @@ header {
   color: #011627; }
 
 .logo {
-  border: 2px solid #011627;
+  border: 2px solid #93979A;
   border-radius: 3px;
   text-decoration: none;
   display: inline-block;
@@ -63,8 +63,8 @@ header {
   box-sizing: border-box; }
 
 .logo:hover {
-  border: 2px solid #2EC4B6;
-  color: #2EC4B6;
+  border: 2px solid #FDFFFC;
+  color: #FDFFFC;
   cursor: pointer; }
 
 .sides, .info {
@@ -77,16 +77,19 @@ header {
   display: flex;
   justify-content: space-around;
   width: 100%;
-  color: #011627; }
+  color: #93979A;
+  position: fixed;
+  background: black;
+  z-index: 50; }
   .sides a {
-    color: #011627; }
+    color: #93979A; }
   .sides .a-logo {
     border: none;
     font-family: lobster;
     font-size: 2em;
     text-decoration: none; }
   .sides .a-logo:hover {
-    color: #2EC4B6;
+    color: #FDFFFC;
     text-decoration: underline; }
 
 .info {
@@ -141,57 +144,31 @@ header {
   font-weight: 700; }
 
 /* Station Index */
-.station-new a {
-  font-size: 180%;
-  color: black; }
+.header-links {
+  color: #011627;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  border: 3px solid #011627;
+  margin: 10px;
+  padding: 10px;
+  width: 500px; }
 
-.station-new a {
-  font-weight: 700; }
-
-.stations-table {
-  width: 100%;
-  border-collapse: collapse; }
-  .stations-table td,
-  .stations-table th {
-    padding: 8px;
-    text-align: left;
-    border: 1px solid #ddd; }
-  .stations-table tr:nth-child(even) {
-    background-color: #d3d4d9; }
+.header-link {
+  width: 50%; }
 
 /* Station New */
-#new_h1 {
-  color: white;
-  font-size: 150%;
-  text-align: center; }
-
-.new_form {
-  text-align: -webkit-center; }
-
-.new_form input {
-  display: flex;
-  justify-content: center;
-  height: 25px;
-  width: 130%;
-  border: 3px solid lightblue;
-  border-radius: 25px; }
-
-.new_form input[placeholder] {
-  font-weight: bold;
-  color: lightblue;
-  text-align: center; }
-
 .new_view {
   display: flex;
   height: 100vh;
-  background-image: url("https://c1.staticflickr.com/6/5089/5233128586_16def34bac_b.jpg");
+  background-image: url("https://images.unsplash.com/photo-1496147539180-13929f8aa03a");
   background-size: 100% 100%;
   justify-content: center;
   align-items: center; }
 
 /*Station Edit*/
 .station-edit {
-  background-image: url(https://images.unsplash.com/photo-1464518983192-0de439b5d517?dpr=1&auto=compress,format&fit=crop&w=3150&h=&q=80&cs=tinysrgb&crop=);
+  background-image: url("https://images.unsplash.com/photo-1496147539180-13929f8aa03a");
   background-size: cover;
   background-attachment: fixed; }
 
@@ -207,6 +184,11 @@ header {
   align-items: center;
   justify-content: center;
   min-height: 100vh; }
+  .edit-container h1 {
+    font-size: 4em;
+    color: #93979A; }
+    .edit-container h1 span {
+      font-weight: 700; }
   .edit-container form {
     display: flex;
     justify-content: center;
@@ -223,24 +205,24 @@ header {
       width: 420px;
       padding: 5px 0px 5px 0px;
       font-size: 20px;
-      border: 1px solid #2EC4B6;
+      border: 3px solid #93979A;
       height: 54px;
       appearance: none; }
     .edit-container form select {
       text-align-last: center; }
     .edit-container form input:hover {
-      border: 1px solid #011627;
-      color: #2EC4B6; }
+      border: 3px solid #011627;
+      color: #93979A; }
     .edit-container form h1 {
       font-size: 1.8em;
       color: #004264;
       font-weight: 700;
       margin-bottom: 45px; }
   .edit-container .submit-btn {
-    border: 4px solid #2EC4B6;
+    border: 4px solid #93979A;
     font-weight: 700; }
   .edit-container .submit-btn:hover {
-    border: 4px solid #011627;
+    border: 4px solid #93979A;
     color: #011627;
     cursor: pointer; }
 
@@ -250,7 +232,9 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column; }
+  flex-direction: column;
+  position: relative;
+  top: 100px; }
   .trip-index-container h1 {
     font-color: #011627;
     font-size: 2em;
@@ -278,7 +262,7 @@ header {
     width: 120px;
     padding: 5px 35px 5px 5px;
     font-size: 12px;
-    border: 1px solid #2EC4B6;
+    border: 1px solid #93979A;
     height: 34px;
     appearance: none;
     background: url("../images/favicon.ico") 96%/30% no-repeat white; }
@@ -313,7 +297,7 @@ header {
     left: 0;
     width: 100%;
     height: 3px;
-    background: #2EC4B6;
+    background: #93979A;
     content: '';
     transition: transform 0.3s;
     transform: scale(0.85); }
@@ -335,7 +319,7 @@ header {
   display: flex;
   flex-direction: column;
   text-align: center;
-  border: 3px solid #2EC4B6;
+  border: 3px solid #93979A;
   margin: 10px;
   padding: 10px;
   width: 500px; }
@@ -346,7 +330,7 @@ header {
 
 /*Trips New*/
 .trips-new {
-  background-image: url(https://images.unsplash.com/photo-1505705694340-019e1e335916?dpr=1&auto=compress,format&fit=crop&w=3289&h=&q=80&cs=tinysrgb&crop=);
+  background-image: url(https://images.unsplash.com/photo-1496147539180-13929f8aa03a);
   background-size: cover;
   background-attachment: fixed; }
 
@@ -360,14 +344,12 @@ header {
 .conditions-new {
   background-image: url(https://images.unsplash.com/photo-1471229058801-75ee9a43ef35?dpr=1&auto=compress,format&fit=crop&w=2866&h=&q=80&cs=tinysrgb&crop=);
   background-size: cover;
-  background-attachment: fixed; 
-}
+  background-attachment: fixed; }
 
 /*CONDITION Edit*/
 .condition-edit {
   background-image: url(https://images.unsplash.com/photo-1487762488615-8a011458b53e?dpr=1&auto=compress,format&fit=crop&w=2767&h=&q=80&cs=tinysrgb&crop=);
   background-size: cover;
-  background-attachment: fixed;
-}
+  background-attachment: fixed; }
 
 /*# sourceMappingURL=index.css.map */

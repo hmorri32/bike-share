@@ -1,9 +1,13 @@
 // $ sass app/public/scss/index.scss app/public/stylesheets/index.css
 
 @import url("https://fonts.googleapis.com/css?family=Droid+Sans:400,700");
+
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
+
 @import url("https://fonts.googleapis.com/css?family=Abril+Fatface");
+
 @import url("https://fonts.googleapis.com/css?family=Lobster");
+
 @import "variables";
 
 body {
@@ -50,7 +54,7 @@ header {
   -webkit-backface-visibility: hidden;
   -webkit-transform: translateZ(0) scale(1, 1);
   transform: translateZ(0);
-  background: #1B2030 url(https://images.unsplash.com/photo-1467087073423-7d287513b0cd) top center no-repeat;
+  background: #1B2030 url(https://images.unsplash.com/photo-1474302694023-9711af8045cf) top center no-repeat;
   background-size: cover;
   background-attachment: fixed;
   animation: grow 60s  linear 10ms infinite;
@@ -63,7 +67,7 @@ header {
 }
 
 .logo {
-  border: 2px solid $black-pearl;
+  border: 2px solid #93979A;
   border-radius: 3px;
   text-decoration: none;
   display: inline-block;
@@ -75,8 +79,8 @@ header {
 }
 
 .logo:hover {
-  border: 2px solid $strong-opal;
-  color: $strong-opal;
+  border: 2px solid $panache;
+  color: $panache;
   cursor: pointer;
 }
 
@@ -87,22 +91,28 @@ header {
 }
 
 .sides {
-  align-items:center;
+  align-items: center;
   display: flex;
   justify-content: space-around;
   width: 100%;
-  color: $black-pearl;
+  color: #93979A;
+  position: fixed;
+  background: black;
+  z-index: 50;
+
   a {
-  color: $black-pearl;
+    color: #93979A;
   }
+
   .a-logo {
     border: none;
     font-family: lobster;
     font-size: 2em;
     text-decoration: none;
   }
+
   .a-logo:hover {
-    color: $strong-opal;
+    color: $panache;
     text-decoration: underline;
   }
 }
@@ -144,11 +154,13 @@ header {
 .station-dashboard {
   background-image: url(https://images.unsplash.com/photo-1476664498204-2675a18e89d0?dpr=1&auto=compress,format&fit=crop&w=3200&h=&q=80&cs=tinysrgb&crop=);
   background-size: cover;
-  background-attachment: fixed; }
+  background-attachment: fixed;
+}
 
 .station-box {
   display: flex;
-  justify-content: center; }
+  justify-content: center;
+}
 
 .dashboard {
   color: #f2f2f2;
@@ -158,78 +170,47 @@ header {
   border: 3px solid #2EC4B6;
   margin: 10px;
   padding: 10px;
-  width: 500px; }
+  width: 500px;
+}
 
 .dashboard li {
   font-size: 1.5em;
-  padding: 10px; }
+  padding: 10px;
+}
 
 .dashboard span {
-  font-weight: 700; }
-
-/* Station Index */
-.station-new a{
-  font-size: 180%;
-  color: black;
-} .station-new a{
   font-weight: 700;
 }
 
-.stations-table {
-  width: 100%;
-  border-collapse: collapse;
-
-  td,
-  th {
-    padding: 8px;
-    text-align: left;
-    border: 1px solid #ddd;
-  }
-
-  tr:nth-child(even) {
-    background-color: #d3d4d9;
-  }
+/* Station Index */
+.header-links {
+  color: $black-pearl;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  border: 3px solid $black-pearl;
+  margin: 10px;
+  padding: 10px;
+  width: 500px;
 }
 
+.header-link {
+  width: 50%;
+}
 
 /* Station New */
-
-#new_h1 {
-  color: white;
-  font-size: 150%;
-  text-align: center;
-}
-
-.new_form {
-  text-align: -webkit-center;
-}
-
-.new_form input {
-  display: flex;
-  justify-content: center;
-  height: 25px;
-  width: 130%;
-  border: 3px solid lightblue;
-  border-radius: 25px;
-}
-
-.new_form input[placeholder] {
-  font-weight: bold;
-  color: lightblue;
-  text-align: center;
-}
-
 .new_view {
   display: flex;
   height: 100vh;
-  background-image: url("https://c1.staticflickr.com/6/5089/5233128586_16def34bac_b.jpg");
+  background-image: url("https://images.unsplash.com/photo-1496147539180-13929f8aa03a");
   background-size: 100% 100%;
   justify-content: center;
   align-items: center;
 }
+
 /*Station Edit*/
 .station-edit {
-  background-image: url(https://images.unsplash.com/photo-1464518983192-0de439b5d517?dpr=1&auto=compress,format&fit=crop&w=3150&h=&q=80&cs=tinysrgb&crop=);
+  background-image: url("https://images.unsplash.com/photo-1496147539180-13929f8aa03a");
   background-size: cover;
   background-attachment: fixed;
 }
@@ -238,7 +219,7 @@ header {
 .trip-edit {
   background-image: url(https://images.unsplash.com/photo-1464896884302-b2985a79d7f4?dpr=1&auto=compress,format&fit=crop&w=3150&h=&q=80&cs=tinysrgb&crop=);
   background-size: cover;
-  background-attachment: fixed;;
+  background-attachment: fixed;
 }
 
 .edit-container {
@@ -247,6 +228,15 @@ header {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
+
+  h1 {
+    font-size: 4em;
+    color: #93979A;
+
+    span {
+      font-weight: $bold;
+    }
+  }
 
   form {
     display: flex;
@@ -265,7 +255,7 @@ header {
       width: 420px;
       padding: 5px 0px 5px 0px;
       font-size: 20px;
-      border: 1px solid $strong-opal;
+      border: 3px solid #93979A;
       height: 54px;
       appearance: none;
     }
@@ -275,8 +265,8 @@ header {
     }
 
     input:hover {
-      border: 1px solid $black-pearl;
-      color: $strong-opal;
+      border: 3px solid $black-pearl;
+      color: #93979A;
     }
 
     h1 {
@@ -286,12 +276,14 @@ header {
       margin-bottom: 45px;
     }
   }
+
   .submit-btn {
-    border: 4px solid $strong-opal;
+    border: 4px solid #93979A;
     font-weight: 700;
   }
+
   .submit-btn:hover {
-    border: 4px solid $black-pearl;
+    border: 4px solid #93979A;
     color: $black-pearl;
     cursor: pointer;
   }
@@ -305,6 +297,8 @@ header {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  position: relative;
+  top: 100px;
 
   h1 {
     font-color: $black-pearl;
@@ -366,7 +360,7 @@ header {
     left: 0;
     width: 100%;
     height: 3px;
-    background: $strong-opal;
+    background: #93979A;
     content: '';
     transition: transform 0.3s;
     transform: scale(0.85);
@@ -396,7 +390,7 @@ header {
   display: flex;
   flex-direction: column;
   text-align: center;
-  border: 3px solid $strong-opal;
+  border: 3px solid #93979A;
   margin: 10px;
   padding: 10px;
   width: 500px;
@@ -409,28 +403,31 @@ header {
     font-weight: 700;
   }
 }
+
 /*Trips New*/
 .trips-new {
-  background-image: url(https://images.unsplash.com/photo-1505705694340-019e1e335916?dpr=1&auto=compress,format&fit=crop&w=3289&h=&q=80&cs=tinysrgb&crop=);
+  background-image: url(https://images.unsplash.com/photo-1496147539180-13929f8aa03a);
   background-size: cover;
-  background-attachment: fixed; }
+  background-attachment: fixed;
+}
 
 /*Trips Show*/
 .trip-show {
   background-image: url(https://images.unsplash.com/photo-1428340977366-8d0e3bcd82d3?dpr=1&auto=compress,format&fit=crop&w=2767&h=&q=80&cs=tinysrgb&crop=);
   background-size: cover;
-  background-attachment: fixed; }
+  background-attachment: fixed;
+}
 
 /*CONDITION NEW*/
 .conditions-new {
   background-image: url(https://images.unsplash.com/photo-1471229058801-75ee9a43ef35?dpr=1&auto=compress,format&fit=crop&w=2866&h=&q=80&cs=tinysrgb&crop=);
   background-size: cover;
-  background-attachment: fixed; }
+  background-attachment: fixed;
 }
 
 /*CONDITION Edit*/
 .condition-edit {
   background-image: url(https://images.unsplash.com/photo-1487762488615-8a011458b53e?dpr=1&auto=compress,format&fit=crop&w=2767&h=&q=80&cs=tinysrgb&crop=);
   background-size: cover;
-  background-attachment: fixed; }
+  background-attachment: fixed;
 }
