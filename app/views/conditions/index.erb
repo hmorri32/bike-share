@@ -4,14 +4,15 @@
   <a href="/trips"      class="logo">TRIPS</a>
   <a href="/conditions" class="logo">CONDITIONS</a>
 </div>
-<header class="station-new">
-  <a href="/conditions/new"><span>New</span> Condition</a>
-</header>
 
 <div class='trip-index-container'>
   <header>
     <h1><span>All</span> Conditions</h1>
   </header>
+  <div class='header-links'>
+    <a class='header-link' href="/conditions/new"><span>New</span> Condition</a>
+    <a class='header-link' href="/conditions-dashboard"><span>Conditions</span> Dashboard</a>
+  </div>
   <% @paginated.each do |condition| %>
     <div class='trip-card'>
       <ul>
