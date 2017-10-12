@@ -1,8 +1,8 @@
 describe '/conditions/show' do
   before :each do
-    Condition.create(id:1, date:"2015-08-06", max_temperature: 43, mean_temperature: 35, min_temperature: 28, mean_humidity: 72, mean_visibility: 3, mean_wind_speed: 35, precipation: 3)
+    Condition.create(date:"2015-08-06", max_temperature: 43, mean_temperature: 35, min_temperature: 28, mean_humidity: 72, mean_visibility: 3, mean_wind_speed: 35, precipitation: 3)
 
-    visit '/stations/1'
+    visit '/conditions/2015-08-06'
   end
 
 it "has status code of 200" do
