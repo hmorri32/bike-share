@@ -1,6 +1,14 @@
+<body class="trips-new">
+<div class="sides">
+  <a class='a-logo' href='/'>Bike Share</a>
+  <a href="/stations"   class="logo">STATIONS</a>
+  <a href="/trips"      class="logo">TRIPS</a>
+  <a href="/conditions" class="logo">CONDITIONS</a>
+</div>
+
 <div class='edit-container'>
+  <h1><span>New</span> Trip</h1>
   <form class="" action="/trips" method="post">
-    <h1>NEW TRIP</h1>
     <input type="integer" name="trip[duration]" placeholder="Duration">
     <input type="text" name="trip[start_date]" placeholder="Start Date">
     <input type="text" name="trip[start_station_id]" placeholder="Start Station">
@@ -12,3 +20,4 @@
     <input class='submit-btn' type="submit" value="submit">
   </form>
 </div>
+</body>

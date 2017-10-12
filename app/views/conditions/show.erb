@@ -1,0 +1,42 @@
+<body class="trip-show">
+  <div class="sides">
+    <a class='a-logo' href='/'>Bike Share</a>
+    <a href="/stations"   class="logo">STATIONS</a>
+    <a href="/trips"      class="logo">TRIPS</a>
+    <a href="/conditions" class="logo">CONDITIONS</a>
+  </div>
+
+  <div class="trip-index-container">
+    <header>
+      <h1><span>Condition</span> Details</h1>
+    </header>
+    <div class="trip-card">
+      <ul>
+        <li><span>Date:</span>
+          <%= @conditions.date %>
+        </li>
+        <li><span>Max Temperature: </span>
+          <%= @conditions.max_temperature %>
+        </li>
+        <li><span>Mean Temperature:</span>
+          <%= @conditions.mean_temperature %>
+        </li>
+        <li><span>Min Temperature:</span>
+          <%= @conditions.min_temperature%>
+        </li>
+        <li><span>Mean Humidity:</span>
+          <%= @conditions.mean_humidity%>
+        </li>
+        <li><span>Mean Visibility:</span>
+          <%= @conditions.mean_visibility%>
+        </li>
+        <li><span>Mean Wind Speed:</span>
+          <%= @conditions.mean_wind_speed%>
+        </li>
+        <li><span>Precipitation:</span>
+          <%= @conditions.precipitation%>
+        </li>
+      </ul>
+    </div>
+  </div>
+</body>

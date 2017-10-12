@@ -1,37 +1,118 @@
-<body class="station-dashboard">
-<div class="sides">
-  <a class='a-logo' href='/'>Bike Share</a>
-  <a href="/stations"   class="logo">STATIONS</a>
-  <a href="/trips"      class="logo">TRIPS</a>
-  <a href="/conditions" class="logo">CONDITIONS</a>
-</div>
-<div class="station-box">
-  <div class='dashboard'>
+<body class="dashboard-background">
+  <div class="sides">
+    <a class='a-logo' href='/'>Bike Share</a>
+    <a href="/stations"   class="logo">STATIONS</a>
+    <a href="/trips"      class="logo">TRIPS</a>
+    <a href="/conditions" class="logo">CONDITIONS</a>
+  </div>
+<br>
+<br>
+<div class="conditions-dashboard">
+  <div class="temperature-range">
+    <h1>Temperature Range</h1><br>
     <ul>
-      <li><span>Total Stations:</span>
-        <%= Station.station_count %>
-      </li>
-      <li><span>Average Bikes:</span>
-        <%= Station.average_bikes %>
-      </li>
-      <li><span>Max Bikes at Station:</span>
-        <%= Station.max_bikes_per_station %>
-      </li>
-      <li><span>Station with most Bikes:</span><br>
-        <%= Station.stations_with_most_bikes%>
-      </li>
-      <li><span>Station with least Bikes:</span><br>
-        <%= Station.stations_with_least_bikes%>
-      </li>
-      <li><span>Min Bikes at Station:</span>
-        <%= Station.min_bikes_per_station%>
-      </li>
-      <li><span>Oldest Station:</span>
-        <%= Station.oldest_station.name%>
-      </li>
-      <li><span>Newest Station:</span>
-        <%= Station.newest_station.name%>
-      </li>
+    <h2>Range 40-49</h2><br>
+      <li>Min:<%= Condition.lowest_number_of_rides_by_temp(40)%></li><br>
+      <li>Max:<%= Condition.highest_number_of_rides_by_temp(40)%></li><br>
+      <li>Average:<%= Condition.average_number_of_rides_by_temp(40)%></li><br>
+    <h2>Range 50-59</h2><br>
+      <li>Min:<%= Condition.lowest_number_of_rides_by_temp(50)%></li><br>
+      <li>Max:<%= Condition.highest_number_of_rides_by_temp(50)%></li><br>
+      <li>Average:<%= Condition.average_number_of_rides_by_temp(50)%></li><br>
+    <h2>Range 60-69</h2><br>
+      <li>Min:<%= Condition.lowest_number_of_rides_by_temp(60)%></li><br>
+      <li>Max:<%= Condition.highest_number_of_rides_by_temp(60)%></li><br>
+      <li>Average:<%= Condition.average_number_of_rides_by_temp(60)%></li><br>
+    <h2>Range 70-79</h2><br>
+      <li>Min:<%= Condition.lowest_number_of_rides_by_temp(70)%></li><br>
+      <li>Max:<%= Condition.highest_number_of_rides_by_temp(70)%></li><br>
+      <li>Average:<%= Condition.average_number_of_rides_by_temp(70)%></li><br>
+    <h2>Range 80-89</h2><br>
+      <li>Min:<%= Condition.lowest_number_of_rides_by_temp(80)%></li><br>
+      <li>Max:<%= Condition.highest_number_of_rides_by_temp(80)%></li><br>
+      <li>Average:<%= Condition.average_number_of_rides_by_temp(80)%></li><br>
+    <h2>Range 90-99</h2><br>
+      <li>Min:<%= Condition.lowest_number_of_rides_by_temp(90)%></li><br>
+      <li>Max:<%= Condition.highest_number_of_rides_by_temp(90)%></li><br>
+      <li>Average:<%= Condition.average_number_of_rides_by_temp(90)%></li><br>
+   </ul>
+  </div>
+
+  <div class="precipitation-range">
+    <h1>Precipitation Range</h1><br>
+    <ul>
+    <h2>Range 0-0.49</h2><br>
+      <li>Min:<%= Condition.lowest_number_of_rides_by_precipitation(0)%></li><br>
+      <li>Max:<%= Condition.highest_number_of_rides_by_precipitation(0)%></li><br>
+      <li>Average:<%= Condition.average_number_of_rides_by_precipitation(0)%></li><br>
+    <h2>Range 0.5-0.99</h2><br>
+      <li>Min:<%= Condition.lowest_number_of_rides_by_precipitation(0.5)%></li><br>
+      <li>Max:<%= Condition.highest_number_of_rides_by_precipitation(0.5)%></li><br>
+      <li>Average:<%= Condition.average_number_of_rides_by_precipitation(0.5)%></li><br>
+    <h2>Range 1-1.49</h2><br>
+      <li>Min:<%= Condition.lowest_number_of_rides_by_precipitation(1)%></li><br>
+      <li>Max:<%= Condition.highest_number_of_rides_by_precipitation(1)%></li><br>
+      <li>Average:<%= Condition.average_number_of_rides_by_precipitation(1)%></li><br>
+    <h2>Range 1.5-1.99</h2><br>
+        <li>Min:0</li><br>
+        <li>Max:0</li><br>
+        <li>Average:0</li><br>
+    <h2>Range 2-2.49</h2><br>
+        <li>Min:0</li><br>
+        <li>Max:0</li><br>
+        <li>Average:0</li><br>
+    <h2>Range 2.5-2.99</h2><br>
+        <li>Min:0</li><br>
+        <li>Max:0</li><br>
+        <li>Average:0</li><br>
+    <h2>Range 3-3.49</h2><br>
+      <li>Min:<%= Condition.lowest_number_of_rides_by_precipitation(3)%></li><br>
+      <li>Max:<%= Condition.highest_number_of_rides_by_precipitation(3)%></li><br>
+      <li>Average:<%= Condition.average_number_of_rides_by_precipitation(3)%></li><br>
+  </ul>
+  </div>
+
+  <div class="wind-range">
+    <h1>Wind Range</h1><br>
+    <ul>
+    <h2>Range 0-3</h2><br>
+        <li>Min:<%= Condition.lowest_number_of_rides_by_wind(0)%></li><br>
+        <li>Max:<%= Condition.highest_number_of_rides_by_wind(0)%></li><br>
+        <li>Average:<%= Condition.average_number_of_rides_by_wind(0)%></li><br>
+    <h2>Range 4-7</h2><br>
+        <li>Min:<%= Condition.lowest_number_of_rides_by_wind(4)%></li><br>
+        <li>Max:<%= Condition.highest_number_of_rides_by_wind(4)%></li><br>
+        <li>Average:<%= Condition.average_number_of_rides_by_wind(4)%></li><br>
+    <h2>Range 8-11</h2><br>
+        <li>Min:<%= Condition.lowest_number_of_rides_by_wind(8)%></li><br>
+        <li>Max:<%= Condition.highest_number_of_rides_by_wind(8)%></li><br>
+        <li>Average:<%= Condition.average_number_of_rides_by_wind(8)%></li><br>
+    <h2>Range 12-15</h2><br>
+        <li>Min:<%= Condition.lowest_number_of_rides_by_wind(12)%></li><br>
+        <li>Max:<%= Condition.highest_number_of_rides_by_wind(12)%></li><br>
+        <li>Average:<%= Condition.average_number_of_rides_by_wind(12)%></li><br>
+    <h2>Range 16-19</h2><br>
+        <li>Min:<%= Condition.lowest_number_of_rides_by_wind(16)%></li><br>
+        <li>Max:<%= Condition.highest_number_of_rides_by_wind(16)%></li><br>
+        <li>Average:<%= Condition.average_number_of_rides_by_wind(16)%></li><br>
+    <h2>Range 20-23</h2><br>
+        <li>Min:<%= Condition.lowest_number_of_rides_by_wind(20)%></li><br>
+        <li>Max:<%= Condition.highest_number_of_rides_by_wind(20)%></li><br>
+        <li>Average:<%= Condition.average_number_of_rides_by_wind(20)%></li><br>
+    </ul>
+  </div>
+
+  <div class="visibility-range">
+    <h1>Visibility Range</h1><br>
+    <ul>
+    <h2>Range 4-7</h2><br>
+        <li>Min:<%= Condition.lowest_number_of_rides_by_visibility(4)%></li><br>
+        <li>Max:<%= Condition.highest_number_of_rides_by_visibility(4)%></li><br>
+        <li>Average:<%= Condition.average_number_of_rides_by_visibility(4)%></li><br>
+    <h2>Range 8-11</h2><br>
+        <li>Min:<%= Condition.lowest_number_of_rides_by_visibility(8)%></li><br>
+        <li>Max:<%= Condition.highest_number_of_rides_by_visibility(8)%></li><br>
+        <li>Average:<%= Condition.average_number_of_rides_by_visibility(8)%></li><br>
     </ul>
   </div>
 </div>

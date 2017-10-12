@@ -11,7 +11,8 @@
             :precipitation,
              presence: true
 
-  has_many :trips, :foreign_key => :start_date
+  validates :date, uniqueness: true
+  has_many  :trips, :foreign_key => :start_date
 
   def self.days_within_high_temperature(range)
     where(max_temperature: [range..range + 9])
@@ -69,15 +70,15 @@
     all_rides_within_wind_speed(range).values.max
   end
 
-  def self.lowest_number_of_rides_by_visbility(range)
+  def self.lowest_number_of_rides_by_visibility(range)
     all_rides_within_visibility(range).values.min
   end
 
-  def self.average_number_of_rides_by_visbility(range)
+  def self.average_number_of_rides_by_visibility(range)
     average(all_rides_within_visibility(range).values)
   end
 
-  def self.highest_number_of_rides_by_visbility(range)
+  def self.highest_number_of_rides_by_visibility(range)
     all_rides_within_visibility(range).values.max
   end
 
@@ -115,23 +116,3 @@
     where(date: minimum(:date)..maximum(:date))
   end
 end
-
-
-# Create a weather dashboard available at /weather-dashboard that includes the following information:
-
-# Breakout of average number of rides # highest number of rides
-
-# lowest number of rides on days with a high temperature in 10 degree chunks (e.g. average number of rides on days with high temps between fifty and sixty degrees)
-
-# Breakout of average number of rides, highest number of rides, and lowest number of rides on days with precipitation in half-inch increments.
-
-# Breakout of average number of rides, highest number of rides, and lowest number of rides on days with mean wind speeds in four mile increments.
-
-# Breakout of average number of rides, highest number of rides, and lowest number of rides on days with mean visibility in miles in four mile increments.
-
-
-# Add the following information to your trip dashboard:
-
-# Weather on the day with the highest rides.
-
-# Weather on the day with the lowest rides.

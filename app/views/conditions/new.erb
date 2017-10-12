@@ -1,0 +1,23 @@
+<body class="conditions-new">
+<div class="sides">
+  <a class='a-logo' href='/'>Bike Share</a>
+  <a href="/stations"   class="logo">STATIONS</a>
+  <a href="/trips"      class="logo">TRIPS</a>
+  <a href="/conditions" class="logo">CONDITIONS</a>
+</div>
+
+<div class='edit-container'>
+  <form class="" action="/trips" method="post">
+    <h1>NEW CONDITION</h1>
+    <input type="date" name="condition[date]" placeholder="Date">
+    <input type="number" name="condition[max_temperature]" placeholder="Max Temperature">
+    <input type="number" name="condition[mean_temperature]" placeholder="Mean Temperature">
+    <input type="number" name="condition[min_temperature]" placeholder="Min Temperature">
+    <input type="number" name="condition[mean_humidity]" placeholder="Mean Humidity">
+    <input type="number" name="condition[mean_visibility]" placeholder="Mean Visibility">
+    <input type="number" name="condition[mean_wind_speed]" placeholder="Mean Wind Speed">
+    <input type="number" name="condition[precipitation]" placeholder="Precipitation">
+    <input class='submit-btn' type="submit" value="submit">
+  </form>
+</div>
+</body>

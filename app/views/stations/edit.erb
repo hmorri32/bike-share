@@ -1,4 +1,4 @@
-<body class="station-edit">  
+<body class="station-edit"> 
 <div class="sides">
   <a class='a-logo' href='/'>Bike Share</a>
   <a href="/stations"   class="logo">STATIONS</a>
@@ -7,8 +7,8 @@
 </div>
 
 <div class='edit-container'>
+  <h1><span>Edit</span> Station</h1>
   <form action="/stations/<%= @station.id %>" method="post">
-  <h1>EDIT THIS STATION</h1>
     <input type="hidden" name="_method" value="PUT" />
     <input type="text" name="station[name]" value="<%= @station.name %>" />
     <input type="integer" name="station[dock_count]" value="<%= @station.dock_count %>" />
