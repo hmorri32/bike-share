@@ -347,13 +347,66 @@ header {
 .conditions-new {
   background-image: url(https://images.unsplash.com/photo-1471229058801-75ee9a43ef35?dpr=1&auto=compress,format&fit=crop&w=2866&h=&q=80&cs=tinysrgb&crop=);
   background-size: cover;
-  background-attachment: fixed; }
+
+  background-attachment: fixed;
+}
 
 /*CONDITION Edit*/
 .condition-edit {
   background-image: url(https://images.unsplash.com/photo-1487762488615-8a011458b53e?dpr=1&auto=compress,format&fit=crop&w=2767&h=&q=80&cs=tinysrgb&crop=);
   background-size: cover;
   background-attachment: fixed; }
+
+
+/*Condition Dashboard*/
+.dashboard-background{
+  background-image: url(https://images.unsplash.com/photo-1504199650982-bbd14c47527b?dpr=1&auto=compress,format&fit=crop&w=1500&h=&q=80&cs=tinysrgb&crop=);
+  background-size: cover;
+  background-attachment: fixed;
+}
+.conditions-dashboard{
+  display: flex;
+  justify-content: space-around;
+}
+
+.temperature-range h1{
+  font-size: 180%;
+  color: white;
+} .temperature-range h2{
+  font-size: 140%;
+  color: white;
+} .temperature-range li{
+  color: white;
+}
+.precipitation-range h1{
+  font-size: 180%;
+  color: white;
+} .precipitation-range h2{
+  font-size: 140%;
+  color: white;
+} .precipitation-range li{
+  color: white;
+}
+
+.wind-range h1{
+  font-size: 180%;
+  color: white;
+} .wind-range h2{
+  font-size: 140%;
+  color: white;
+} .wind-range li {
+  color: white;
+}
+
+.visibility-range h1{
+ font-size: 180%;
+ color: white;
+} .visibility-range h2{
+ font-size: 140%;
+ color: white;
+} .visibility-range li{
+  color: white;
+}
 
 /* Trip-Dashboard */
 .dashboard-container {
@@ -384,5 +437,6 @@ header {
     font-size: 1.5em; }
   .month-container p {
     margin: 10px; }
+
 
 /*# sourceMappingURL=index.css.map */
