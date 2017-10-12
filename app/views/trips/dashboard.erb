@@ -9,7 +9,7 @@
     <header>
       <h1><span>Trip</span> Dashboard</h1>
     </header>
-    <h1>ANALYTICS</h1>
+    <h1>Analytics</h1>
     <div class='trip-card'>
       <ul>
         <li><span>Average trip duration:</span>
@@ -56,16 +56,45 @@
         </li>
       </ul>
     </div>
-    <h1><span>MONTHLY</span> BREAKDOWN</h1>
+    <h1><span>Monthly</span> Breakdown</h1>
     <div class='month-container'>
       <% @month_breakdown.each do |month| %>
         <div class='monthly-breakdown trip-card'>
           <h2><span> <%= month.slice(0) %></span> <%= month.slice(1) %></h2>
-
-
           <p><span>Ride Count:</span> <%= month.slice(2) %>
           </p>
         </div>
         <% end %>
     </div>
+    <h1><span>Weather</span> Conditions (day with highest rides)</h1>
+    <div class='trip-card'>
+      <ul>
+        <li><span>Date:</span> <%= Condition.weather_on_day_with_highest_rides.first.id %></li>
+        <li><span>Max Temperature:</span> <%= Condition.weather_on_day_with_highest_rides.first.max_temperature %> fahrenheit</li>
+        <li><span>Mean Temperature:</span> <%= Condition.weather_on_day_with_highest_rides.first.mean_temperature %> fahrenheit</li>
+        <li><span>Min Temperature:</span> <%= Condition.weather_on_day_with_highest_rides.first.min_temperature %> fahrenheit</li>
+        <li><span>Mean Humidity:</span> <%= Condition.weather_on_day_with_highest_rides.first.mean_humidity %> relative humidity</li>
+        <li><span>Mean Visibility:</span> <%= Condition.weather_on_day_with_highest_rides.first.mean_visibility %> miles</li>
+        <li><span>Mean Wind Speed:</span> <%= Condition.weather_on_day_with_highest_rides.first.mean_wind_speed %> mph</li>
+        <li><span>Precipitation:</span> <%= Condition.weather_on_day_with_highest_rides.first.precipitation %> inches</li>
+      </ul>
+    </div>
+    <h1><span>Weather</span> Conditions (day with lowest rides)</h1>
+    <div class='trip-card'>
+      <ul>
+        <li><span>Date:</span> <%= Condition.weather_on_day_with_lowest_rides.first.id %></li>
+        <li><span>Max Temperature:</span> <%= Condition.weather_on_day_with_lowest_rides.first.max_temperature %> fahrenheit</li>
+        <li><span>Mean Temperature:</span> <%= Condition.weather_on_day_with_lowest_rides.first.mean_temperature %> fahrenheit</li>
+        <li><span>Min Temperature:</span> <%= Condition.weather_on_day_with_lowest_rides.first.min_temperature %> fahrenheit</li>
+        <li><span>Mean Humidity:</span> <%= Condition.weather_on_day_with_lowest_rides.first.mean_humidity %> relative humidity</li>
+        <li><span>Mean Visibility:</span> <%= Condition.weather_on_day_with_lowest_rides.first.mean_visibility %> miles</li>
+        <li><span>Mean Wind Speed:</span> <%= Condition.weather_on_day_with_lowest_rides.first.mean_wind_speed %> mph</li>
+        <li><span>Precipitation:</span> <%= Condition.weather_on_day_with_lowest_rides.first.precipitation %> inches</li>
+      </ul>
+    </div>
   </div>
+<!-- 
+weather_on_day_with_highest_rides
+weather_on_day_with_lowest_rides -->
+
+<!-- <Condition id: "2014-10-29", date: "2014-10-29", max_temperature: 77, mean_temperature: 64, min_temperature: 50, mean_humidity: 63, mean_visibility: 10, mean_wind_speed: 4, precipitation: 0.0, created_at: "2017-10-11 15:12:57", updated_at: "2017-10-11 15:12:57"> -->
