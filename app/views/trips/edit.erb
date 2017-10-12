@@ -1,3 +1,4 @@
+<body class="trip-edit">
 <div class="sides">
   <a class='a-logo' href='/'>Bike Share</a>
   <a href="/stations"   class="logo">STATIONS</a>
@@ -6,8 +7,8 @@
 </div>
 
 <div class='edit-container'>
+  <h1><span>Edit</span> Trip</h1>
   <form action="/trips/<%= @trip.id %>" method="post">
-    <h1>EDIT THIS TRIP</h1>
     <input type="hidden" name="_method" value="PUT" />
     <input type="integer" name="trip[duration]" value="<%= @trip.duration %>" />
     <input type="text" name="trip[start_date]" value="<%= @trip.start_date %>" />
@@ -20,3 +21,4 @@
     <input class='submit-btn' type="submit" value ="SUBMIT">
   </form>
 </div>
+</body>

@@ -160,6 +160,8 @@ header {
 .station-box {
   display: flex;
   justify-content: center;
+  position: relative;
+  top: 150px;
 }
 
 .dashboard {
@@ -167,7 +169,7 @@ header {
   display: flex;
   flex-direction: column;
   text-align: center;
-  border: 3px solid #2EC4B6;
+  border: 3px solid #93979A;
   margin: 10px;
   padding: 10px;
   width: 500px;
@@ -217,7 +219,7 @@ header {
 
 /* Edit */
 .trip-edit {
-  background-image: url(https://images.unsplash.com/photo-1464896884302-b2985a79d7f4?dpr=1&auto=compress,format&fit=crop&w=3150&h=&q=80&cs=tinysrgb&crop=);
+  background-image: url('https://images.unsplash.com/photo-1496147539180-13929f8aa03a');
   background-size: cover;
   background-attachment: fixed;
 }
@@ -228,11 +230,10 @@ header {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background-image: url("https://images.unsplash.com/photo-1496147539180-13929f8aa03a")
   h1 {
     font-size: 4em;
     color: #93979A;
-
+    margin-bottom: 20px;
     span {
       font-weight: $bold;
     }
