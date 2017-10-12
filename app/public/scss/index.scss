@@ -468,3 +468,53 @@ header {
     margin: 10px;
   }
 }
+
+/*Condition Dashboard*/
+.dashboard-background{
+  background-image: url(https://images.unsplash.com/photo-1504199650982-bbd14c47527b?dpr=1&auto=compress,format&fit=crop&w=1500&h=&q=80&cs=tinysrgb&crop=);
+  background-size: cover;
+  background-attachment: fixed;
+}
+.conditions-dashboard{
+  display: flex;
+  justify-content: space-around;
+}
+
+.temperature-range h1{
+  font-size: 180%;
+  color: white;
+} .temperature-range h2{
+  font-size: 140%;
+  color: white;
+} .temperature-range li{
+  color: white;
+}
+.precipitation-range h1{
+  font-size: 180%;
+  color: white;
+} .precipitation-range h2{
+  font-size: 140%;
+  color: white;
+} .precipitation-range li{
+  color: white;
+}
+
+.wind-range h1{
+  font-size: 180%;
+  color: white;
+} .wind-range h2{
+  font-size: 140%;
+  color: white;
+} .wind-range li {
+  color: white;
+}
+
+.visibility-range h1{
+ font-size: 180%;
+ color: white;
+} .visibility-range h2{
+ font-size: 140%;
+ color: white;
+} .visibility-range li{
+  color: white;
+}
