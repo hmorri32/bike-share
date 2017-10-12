@@ -24,7 +24,7 @@ it "user sees form with city field" do
 end
 
 it 'user selects city from drop down menu' do
-  expect(page).to have_select('city id', selected: 'Option 2')
+  expect(page).to have_select('city id', selected: 'PALO ALTO')
 end
 
 it "user sees form with installation date field" do
