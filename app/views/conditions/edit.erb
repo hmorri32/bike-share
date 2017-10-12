@@ -1,0 +1,24 @@
+<body class="condition-edit">
+<div class="sides">
+  <a class='a-logo' href='/'>Bike Share</a>
+  <a href="/stations"   class="logo">STATIONS</a>
+  <a href="/trips"      class="logo">TRIPS</a>
+  <a href="/conditions" class="logo">CONDITIONS</a>
+</div>
+
+<div class='edit-container'>
+  <form action="/conditions/<%= @condition.id %>" method="post">
+    <h1>EDIT THIS Condition</h1>
+    <input type="hidden" name="_method" value="PUT" />
+    <input type="date" name="condition[date]" value="<%= @condition.date %>">
+    <input type="number" name="condition[max_temperature]" value="<%= @condition.max_temperature%>">
+    <input type="number" name="condition[mean_temperature]" value="<%= @condition.mean_temperature%>">
+    <input type="number" name="condition[min_temperature]" value="<%= @condition.min_temperature%>">
+    <input type="number" name="condition[mean_humidity]" value="<%= @condition.mean_humidity%>">
+    <input type="number" name="condition[mean_visibility]" value="<%= @condition.mean_visibility%>">
+    <input type="number" name="condition[mean_wind_speed]" value="<%= @condition.mean_wind_speed%>">
+    <input type="number" name="condition[precipitation]" value="<%= @condition.precipitation%>">
+    <input class='submit-btn' type="submit" value="submit">
+  </form>
+</div>
+</body>
