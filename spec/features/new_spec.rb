@@ -23,9 +23,9 @@ it "user sees form with city field" do
   expect(page).to have_field("station[city_id]")
 end
 
-it 'user selects city from drop down menu' do
-  expect(page).to have_select('city id', selected: 'PALO ALTO')
-end
+
+
+
 
 it "user sees form with installation date field" do
   expect(page).to have_field("station[installation_date]" )
@@ -45,8 +45,6 @@ it "user can click submit button on form" do
   expect(current_path).to eq('/stations')
 end
 
-    #redirect valdiation
 
-    #invalid data validation
 
 end
