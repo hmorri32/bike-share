@@ -158,7 +158,7 @@ RSpec.context Trip do
     describe '.least_ridden_bike' do
       it 'returns the least ridden bike with id and ride count' do
         expect(Trip.least_ridden_bike.class).to eql(Array)
-        expect(Trip.least_ridden_bike).to eql([12, 1])
+        expect(Trip.least_ridden_bike).to eql([22, 1])
       end
     end
 
