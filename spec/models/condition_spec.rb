@@ -233,19 +233,19 @@ RSpec.context Condition do
 
     describe ".lowest_number_of_rides_by_visbility" do
       it 'returns lowest number of rides in a visibility range' do
-        expect(Condition.lowest_number_of_rides_by_visbility(3)).to eql(1)
+        expect(Condition.lowest_number_of_rides_by_visibility(3)).to eql(1)
       end
     end
 
     describe ".average_number_of_rides_by_visbility" do
       it 'returns average number of rides in a visibility range' do
-        expect(Condition.average_number_of_rides_by_visbility(3)).to eql(1.0)
+        expect(Condition.average_number_of_rides_by_visibility(3)).to eql(1.0)
       end
     end
 
     describe ".highest_number_of_rides_by_visbility" do
       it 'returns highest number of rides in a visibility range' do
-        expect(Condition.highest_number_of_rides_by_visbility(3)).to eql(1)
+        expect(Condition.highest_number_of_rides_by_visibility(3)).to eql(1)
       end
     end
 
