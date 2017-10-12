@@ -11,7 +11,8 @@ class Condition < ActiveRecord::Base
             :precipitation,
              presence: true
 
-  has_many :trips, :foreign_key => :start_date
+  validates :date, uniqueness: true
+  has_many  :trips, :foreign_key => :start_date
 
   def self.days_within_high_temperature(range)
     where(max_temperature: [range..range + 9])
