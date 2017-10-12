@@ -30,7 +30,7 @@ describe '/stations/dashboard' do
   end
 
   it 'user can see oldest station' do
-    expect(page).to have_content("San Francisco")
+    expect(page).to have_content("San Jose")
   end
 
   it 'user can see newest station' do

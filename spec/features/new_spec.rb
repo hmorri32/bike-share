@@ -27,7 +27,6 @@ end
 
 
 
-
 it "user sees form with installation date field" do
   expect(page).to have_field("station[installation_date]" )
 end
